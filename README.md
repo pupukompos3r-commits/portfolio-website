@@ -1,1 +1,128 @@
 # portfolio-website
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio - Your Name</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:#0f172a;
+  color:white;
+}
+
+header {
+  padding:60px 20px;
+  text-align:center;
+  background:linear-gradient(135deg,#064e3b,#0f172a);
+}
+
+h1 {font-size:40px;}
+h2 {color:#34d399;}
+
+.container {padding:40px 20px; max-width:1000px; margin:auto;}
+
+.card {
+  background:#111827;
+  padding:20px;
+  margin:15px 0;
+  border-radius:12px;
+  transition:0.3s;
+}
+
+.card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 0 20px #34d39955;
+}
+
+.btn {
+  display:inline-block;
+  padding:10px 20px;
+  margin-top:15px;
+  background:#34d399;
+  color:black;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+}
+
+footer {
+  text-align:center;
+  padding:20px;
+  background:#020617;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Your Name</h1>
+  <p>Advocate | Legal Consultant | Remote Enthusiast</p>
+  <a href="#contact" class="btn">Hire Me</a>
+</header>
+
+<div class="container">
+
+<h2>About Me</h2>
+<div class="card">
+  <p>
+  Saya adalah advokat profesional dengan komitmen tinggi terhadap keadilan, 
+  integritas, dan pelayanan klien. Berfokus pada pekerjaan remote dengan 
+  pendekatan efisien dan transparan.
+  </p>
+</div>
+
+<h2>CV / Resume</h2>
+<div class="card">
+  <p><b>Education:</b> S.H. (Hukum)</p>
+  <p><b>Experience:</b> Legal Consultant, Advocate</p>
+  <p><b>Skills:</b> Legal Drafting, Litigation, Negotiation</p>
+  <a href="#" class="btn">Download CV</a>
+</div>
+
+<h2>Portfolio</h2>
+<div class="grid">
+  <div class="card">Kasus Perdata</div>
+  <div class="card">Legal Opinion</div>
+  <div class="card">Kontrak Bisnis</div>
+</div>
+
+<h2>Certifications</h2>
+<div class="grid">
+  <div class="card">PKPA Certificate</div>
+  <div class="card">Advocate License</div>
+</div>
+
+<h2>Gallery</h2>
+<div class="grid">
+  <div class="card">Foto Profesional</div>
+  <div class="card">Kegiatan Seminar</div>
+</div>
+
+<h2 id="contact">Contact</h2>
+<div class="card">
+  <p>Email: your@email.com</p>
+  <p>WhatsApp: 08xxxxxxxxxx</p>
+  <a href="#" class="btn">LinkedIn</a>
+</div>
+
+</div>
+
+<footer>
+  <p>© 2026 Your Name | Professional Portfolio</p>
+</footer>
+
+</body>
+</html>
