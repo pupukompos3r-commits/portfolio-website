@@ -1,127 +1,456 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio - Your Name</title>
+<!doctype html>
+<html lang="en" class="h-full scroll-smooth">
+ <head><script src="/_sdk/telemetry_sdk.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dwi Laily Satiti - Remote Customer Support &amp; Admin Professional. Reliable, detail-oriented, and client-focused.">
+  <meta name="keywords" content="customer support, remote work, admin, virtual assistant, Indonesia">
+  <title>Dwi Laily Satiti | Remote Customer Support Professional</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            navy: { 50: '#f0f4f8', 100: '#d9e2ec', 200: '#bcccdc', 300: '#9fb3c8', 400: '#7b8fad', 500: '#486581', 600: '#334e68', 700: '#243b53', 800: '#1a2f44', 900: '#102a43' },
+            silver: { 100: '#f7f9fc', 200: '#e3e8ee', 300: '#cbd2d9', 400: '#9aa5b1' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html, body { font-family: 'Outfit', sans-serif; height: 100%; margin: 0; }
+    .font-display { font-family: 'Playfair Display', serif; }
+    .fade-up { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .skill-bar { transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1); }
+    .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(16, 42, 67, 0.15); }
+    .glow:hover { box-shadow: 0 0 20px rgba(72, 101, 129, 0.4); }
+    .nav-link { position: relative; }
+    .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: #486581; transition: width 0.3s ease; }
+    .nav-link:hover::after { width: 100%; }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+    .float-anim { animation: float 3s ease-in-out infinite; }
+    .loader { position: fixed; inset: 0; background: #102a43; display: flex; align-items: center; justify-content: center; z-index: 9999; transition: opacity 0.5s ease; }
+    .loader.hidden { opacity: 0; pointer-events: none; }
+    .loader-dot { width: 12px; height: 12px; border-radius: 50%; background: #7b8fad; margin: 0 6px; animation: bounce 0.6s infinite alternate; }
+    .loader-dot:nth-child(2) { animation-delay: 0.2s; }
+    .loader-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce { to { transform: translateY(-16px); opacity: 0.3; } }
+  </style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full bg-silver-100 text-navy-800 dark:bg-navy-900 dark:text-silver-100 overflow-auto">
+  <!-- Loader -->
+  <div class="loader" id="loader">
+   <div class="loader-dot"></div>
+   <div class="loader-dot"></div>
+   <div class="loader-dot"></div>
+  </div><!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-navy-900/90 backdrop-blur-md border-b border-silver-200 dark:border-navy-700 transition-all duration-300">
+   <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="#hero" class="font-display text-xl font-bold text-navy-800 dark:text-silver-100">DLS</a>
+    <div class="hidden md:flex items-center gap-6">
+     <a href="#about" class="nav-link text-sm font-medium text-navy-600 dark:text-silver-200">About</a> <a href="#experience" class="nav-link text-sm font-medium text-navy-600 dark:text-silver-200">Experience</a> <a href="#skills" class="nav-link text-sm font-medium text-navy-600 dark:text-silver-200">Skills</a> <a href="#portfolio" class="nav-link text-sm font-medium text-navy-600 dark:text-silver-200">Portfolio</a> <a href="#certifications" class="nav-link text-sm font-medium text-navy-600 dark:text-silver-200">Certifications</a> <a href="#contact" class="nav-link text-sm font-medium text-navy-600 dark:text-silver-200">Contact</a>
+    </div>
+    <div class="flex items-center gap-3">
+     <button id="themeToggle" class="p-2 rounded-full bg-silver-200 dark:bg-navy-700 transition-colors" aria-label="Toggle theme"> <i data-lucide="sun" class="w-4 h-4 dark:hidden"></i> <i data-lucide="moon" class="w-4 h-4 hidden dark:block"></i> </button> <button id="mobileMenuBtn" class="md:hidden p-2" aria-label="Menu"> <i data-lucide="menu" class="w-5 h-5"></i> </button>
+    </div>
+   </div><!-- Mobile Menu -->
+   <div id="mobileMenu" class="hidden md:hidden px-4 pb-4 space-y-2">
+    <a href="#about" class="block py-2 text-sm text-navy-600 dark:text-silver-200">About</a> <a href="#experience" class="block py-2 text-sm text-navy-600 dark:text-silver-200">Experience</a> <a href="#skills" class="block py-2 text-sm text-navy-600 dark:text-silver-200">Skills</a> <a href="#portfolio" class="block py-2 text-sm text-navy-600 dark:text-silver-200">Portfolio</a> <a href="#certifications" class="block py-2 text-sm text-navy-600 dark:text-silver-200">Certifications</a> <a href="#contact" class="block py-2 text-sm text-navy-600 dark:text-silver-200">Contact</a>
+   </div>
+  </nav>
+  <main class="w-full">
+   <!-- Hero -->
+   <section id="hero" class="min-h-[100%] flex items-center justify-center pt-20 px-4">
+    <div class="max-w-4xl mx-auto text-center fade-up">
+     <div class="w-28 h-28 mx-auto mb-6 rounded-full bg-gradient-to-br from-navy-500 to-navy-700 flex items-center justify-center float-anim">
+      <span class="text-3xl font-bold text-white font-display">DLS</span>
+     </div>
+     <h1 id="heroHeadline" class="font-display text-3xl md:text-5xl font-bold text-navy-900 dark:text-white mb-4">Remote Customer Support &amp; Admin Professional</h1>
+     <p id="heroTagline" class="text-lg md:text-xl text-navy-500 dark:text-silver-300 mb-8 max-w-2xl mx-auto">Dedicated, detail-oriented, and client-focused. Helping businesses thrive through exceptional support and seamless administration.</p>
+     <div class="flex flex-wrap gap-4 justify-center">
+      <a href="#contact" class="px-6 py-3 bg-navy-700 hover:bg-navy-800 text-white rounded-lg font-medium transition-colors glow">Hire Me</a> <a href="#experience" class="px-6 py-3 border-2 border-navy-300 dark:border-navy-500 text-navy-700 dark:text-silver-200 rounded-lg font-medium hover:bg-navy-50 dark:hover:bg-navy-800 transition-colors">View My Work</a>
+     </div>
+    </div>
+   </section><!-- About -->
+   <section id="about" class="py-20 px-4">
+    <div class="max-w-4xl mx-auto fade-up">
+     <h2 class="font-display text-2xl md:text-3xl font-bold text-navy-900 dark:text-white mb-8 text-center">About Me</h2>
+     <div class="bg-white dark:bg-navy-800 rounded-2xl p-8 shadow-sm border border-silver-200 dark:border-navy-700">
+      <p id="aboutText" class="text-navy-600 dark:text-silver-300 leading-relaxed text-lg mb-6">I'm Dwi Laily Satiti, a customer support and administrative professional based in Indonesia, specializing in remote work. With hands-on experience running my own online business and serving clients directly, I bring a unique combination of entrepreneurial mindset and service excellence to every role.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
+       <div class="text-center p-4 rounded-xl bg-navy-50 dark:bg-navy-700/50">
+        <i data-lucide="shield-check" class="w-8 h-8 mx-auto mb-2 text-navy-500"></i>
+        <h3 class="font-semibold text-navy-800 dark:text-white">Integrity</h3>
+        <p class="text-sm text-navy-500 dark:text-silver-300">Honest and transparent in all interactions</p>
+       </div>
+       <div class="text-center p-4 rounded-xl bg-navy-50 dark:bg-navy-700/50">
+        <i data-lucide="heart-handshake" class="w-8 h-8 mx-auto mb-2 text-navy-500"></i>
+        <h3 class="font-semibold text-navy-800 dark:text-white">Client-First</h3>
+        <p class="text-sm text-navy-500 dark:text-silver-300">Your satisfaction is my priority</p>
+       </div>
+       <div class="text-center p-4 rounded-xl bg-navy-50 dark:bg-navy-700/50">
+        <i data-lucide="zap" class="w-8 h-8 mx-auto mb-2 text-navy-500"></i>
+        <h3 class="font-semibold text-navy-800 dark:text-white">Proactive</h3>
+        <p class="text-sm text-navy-500 dark:text-silver-300">Anticipating needs before they arise</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Experience -->
+   <section id="experience" class="py-20 px-4 bg-white dark:bg-navy-800/50">
+    <div class="max-w-4xl mx-auto fade-up">
+     <h2 class="font-display text-2xl md:text-3xl font-bold text-navy-900 dark:text-white mb-8 text-center">Experience &amp; Education</h2>
+     <div class="space-y-6">
+      <div class="relative pl-8 border-l-2 border-navy-200 dark:border-navy-600">
+       <div class="absolute left-[-9px] top-1 w-4 h-4 rounded-full bg-navy-500"></div>
+       <h3 class="font-semibold text-navy-800 dark:text-white">Online Business Owner &amp; Customer Support</h3>
+       <p class="text-sm text-navy-400 mb-2">2020 – Present · Self-Employed</p>
+       <p class="text-navy-600 dark:text-silver-300">Built and managed an online business independently. Handled all customer communications, order processing, complaint resolution, and relationship management via chat platforms.</p>
+      </div>
+      <div class="relative pl-8 border-l-2 border-navy-200 dark:border-navy-600">
+       <div class="absolute left-[-9px] top-1 w-4 h-4 rounded-full bg-navy-500"></div>
+       <h3 class="font-semibold text-navy-800 dark:text-white">Administrative Support</h3>
+       <p class="text-sm text-navy-400 mb-2">Freelance · Remote</p>
+       <p class="text-navy-600 dark:text-silver-300">Provided administrative support including data entry, scheduling, email management, and document preparation for various clients.</p>
+      </div>
+      <div class="relative pl-8 border-l-2 border-navy-200 dark:border-navy-600">
+       <div class="absolute left-[-9px] top-1 w-4 h-4 rounded-full bg-navy-300"></div>
+       <h3 class="font-semibold text-navy-800 dark:text-white">Education</h3>
+       <p class="text-sm text-navy-400 mb-2">Bachelor's Degree in Law</p>
+       <p class="text-navy-600 dark:text-silver-300">Strong analytical thinking, attention to detail, and professional communication skills developed through legal education.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Skills -->
+   <section id="skills" class="py-20 px-4">
+    <div class="max-w-4xl mx-auto fade-up">
+     <h2 class="font-display text-2xl md:text-3xl font-bold text-navy-900 dark:text-white mb-8 text-center">Skills</h2>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="space-y-4">
+       <div>
+        <div class="flex justify-between mb-1"><span class="text-sm font-medium text-navy-700 dark:text-silver-200">Customer Support</span><span class="text-sm text-navy-400">95%</span>
+        </div>
+        <div class="h-2 bg-silver-200 dark:bg-navy-700 rounded-full overflow-hidden">
+         <div class="skill-bar h-full bg-navy-500 rounded-full" data-width="95"></div>
+        </div>
+       </div>
+       <div>
+        <div class="flex justify-between mb-1"><span class="text-sm font-medium text-navy-700 dark:text-silver-200">Communication</span><span class="text-sm text-navy-400">90%</span>
+        </div>
+        <div class="h-2 bg-silver-200 dark:bg-navy-700 rounded-full overflow-hidden">
+         <div class="skill-bar h-full bg-navy-500 rounded-full" data-width="90"></div>
+        </div>
+       </div>
+       <div>
+        <div class="flex justify-between mb-1"><span class="text-sm font-medium text-navy-700 dark:text-silver-200">Admin &amp; Data Entry</span><span class="text-sm text-navy-400">88%</span>
+        </div>
+        <div class="h-2 bg-silver-200 dark:bg-navy-700 rounded-full overflow-hidden">
+         <div class="skill-bar h-full bg-navy-500 rounded-full" data-width="88"></div>
+        </div>
+       </div>
+      </div>
+      <div class="space-y-4">
+       <div>
+        <div class="flex justify-between mb-1"><span class="text-sm font-medium text-navy-700 dark:text-silver-200">Problem Solving</span><span class="text-sm text-navy-400">92%</span>
+        </div>
+        <div class="h-2 bg-silver-200 dark:bg-navy-700 rounded-full overflow-hidden">
+         <div class="skill-bar h-full bg-navy-500 rounded-full" data-width="92"></div>
+        </div>
+       </div>
+       <div>
+        <div class="flex justify-between mb-1"><span class="text-sm font-medium text-navy-700 dark:text-silver-200">Microsoft Office / Google Suite</span><span class="text-sm text-navy-400">85%</span>
+        </div>
+        <div class="h-2 bg-silver-200 dark:bg-navy-700 rounded-full overflow-hidden">
+         <div class="skill-bar h-full bg-navy-500 rounded-full" data-width="85"></div>
+        </div>
+       </div>
+       <div>
+        <div class="flex justify-between mb-1"><span class="text-sm font-medium text-navy-700 dark:text-silver-200">Time Management</span><span class="text-sm text-navy-400">90%</span>
+        </div>
+        <div class="h-2 bg-silver-200 dark:bg-navy-700 rounded-full overflow-hidden">
+         <div class="skill-bar h-full bg-navy-500 rounded-full" data-width="90"></div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Portfolio -->
+   <section id="portfolio" class="py-20 px-4 bg-white dark:bg-navy-800/50">
+    <div class="max-w-5xl mx-auto fade-up">
+     <h2 class="font-display text-2xl md:text-3xl font-bold text-navy-900 dark:text-white mb-3 text-center">Portfolio</h2>
+     <p class="text-center text-navy-500 dark:text-silver-300 mb-8">Real customer interactions &amp; project showcases</p>
+     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"><!-- Portfolio Item 1 -->
+      <div class="card-hover bg-silver-100 dark:bg-navy-700 rounded-xl overflow-hidden border border-silver-200 dark:border-navy-600 cursor-pointer group">
+       <div class="h-48 bg-gradient-to-br from-emerald-100 to-emerald-200 dark:from-emerald-600 dark:to-emerald-700 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+        <div class="text-center opacity-70"><i data-lucide="message-circle" class="w-12 h-12 text-emerald-600 dark:text-emerald-200 mx-auto mb-2"></i>
+         <p class="text-xs font-medium text-emerald-700 dark:text-emerald-100">WhatsApp Chat Snapshot</p>
+        </div>
+       </div>
+       <div class="p-4">
+        <h3 id="portfolio_title_1_display" class="font-semibold text-navy-800 dark:text-white mb-1">Customer Chat Support</h3>
+        <p id="portfolio_desc_1_display" class="text-sm text-navy-500 dark:text-silver-300">Handling product inquiries and resolving issues via WhatsApp &amp; messaging platforms</p>
+       </div>
+      </div><!-- Portfolio Item 2 -->
+      <div class="card-hover bg-silver-100 dark:bg-navy-700 rounded-xl overflow-hidden border border-silver-200 dark:border-navy-600 cursor-pointer group">
+       <div class="h-48 bg-gradient-to-br from-blue-100 to-blue-200 dark:from-blue-600 dark:to-blue-700 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+        <div class="text-center opacity-70"><i data-lucide="package" class="w-12 h-12 text-blue-600 dark:text-blue-200 mx-auto mb-2"></i>
+         <p class="text-xs font-medium text-blue-700 dark:text-blue-100">Order Management</p>
+        </div>
+       </div>
+       <div class="p-4">
+        <h3 id="portfolio_title_2_display" class="font-semibold text-navy-800 dark:text-white mb-1">Order Processing &amp; Tracking</h3>
+        <p id="portfolio_desc_2_display" class="text-sm text-navy-500 dark:text-silver-300">Processing orders, tracking shipments, and confirming deliveries with accuracy</p>
+       </div>
+      </div><!-- Portfolio Item 3 - Static -->
+      <div class="card-hover bg-silver-100 dark:bg-navy-700 rounded-xl overflow-hidden border border-silver-200 dark:border-navy-600 cursor-pointer group">
+       <div class="h-48 bg-gradient-to-br from-purple-100 to-purple-200 dark:from-purple-600 dark:to-purple-700 flex items-center justify-center group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+        <div class="text-center opacity-70"><i data-lucide="star" class="w-12 h-12 text-purple-600 dark:text-purple-200 mx-auto mb-2"></i>
+         <p class="text-xs font-medium text-purple-700 dark:text-purple-100">Client Satisfaction</p>
+        </div>
+       </div>
+       <div class="p-4">
+        <h3 class="font-semibold text-navy-800 dark:text-white mb-1">Building Relationships</h3>
+        <p class="text-sm text-navy-500 dark:text-silver-300">Creating long-term client relationships through exceptional service and responsiveness</p>
+       </div>
+      </div>
+     </div><!-- Portfolio Details Section -->
+     <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="p-6 bg-silver-100 dark:bg-navy-700 rounded-xl border border-silver-200 dark:border-navy-600">
+       <div class="flex gap-3 mb-4">
+        <div class="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-600 flex items-center justify-center flex-shrink-0"><i data-lucide="message-square" class="w-5 h-5 text-emerald-600 dark:text-emerald-100"></i>
+        </div>
+        <div>
+         <h4 class="font-semibold text-navy-800 dark:text-white">Customer Communication Expertise</h4>
+         <p class="text-sm text-navy-500 dark:text-silver-300 mt-1">Proficient in responding to customer inquiries within minutes, providing accurate information, and maintaining professional tone across all channels including WhatsApp, email, and chat platforms.</p>
+        </div>
+       </div>
+      </div>
+      <div class="p-6 bg-silver-100 dark:bg-navy-700 rounded-xl border border-silver-200 dark:border-navy-600">
+       <div class="flex gap-3 mb-4">
+        <div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-600 flex items-center justify-center flex-shrink-0"><i data-lucide="clipboard-check" class="w-5 h-5 text-blue-600 dark:text-blue-100"></i>
+        </div>
+        <div>
+         <h4 class="font-semibold text-navy-800 dark:text-white">Admin &amp; Data Management</h4>
+         <p class="text-sm text-navy-500 dark:text-silver-300 mt-1">Experience with data entry, spreadsheet management, scheduling, and documentation. Skilled in organizing information systematically and maintaining accurate records for business operations.</p>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Certifications -->
+   <section id="certifications" class="py-20 px-4">
+    <div class="max-w-4xl mx-auto fade-up">
+     <h2 class="font-display text-2xl md:text-3xl font-bold text-navy-900 dark:text-white mb-8 text-center">Certifications</h2>
+     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div class="card-hover flex items-center gap-4 p-5 bg-white dark:bg-navy-800 rounded-xl border border-silver-200 dark:border-navy-700">
+       <div class="w-12 h-12 rounded-lg bg-navy-100 dark:bg-navy-700 flex items-center justify-center flex-shrink-0">
+        <i data-lucide="award" class="w-6 h-6 text-navy-500"></i>
+       </div>
+       <div>
+        <h3 class="font-semibold text-navy-800 dark:text-white text-sm">Customer Service Excellence</h3>
+        <p class="text-xs text-navy-400">Online Course · 2023</p>
+       </div>
+      </div>
+      <div class="card-hover flex items-center gap-4 p-5 bg-white dark:bg-navy-800 rounded-xl border border-silver-200 dark:border-navy-700">
+       <div class="w-12 h-12 rounded-lg bg-navy-100 dark:bg-navy-700 flex items-center justify-center flex-shrink-0">
+        <i data-lucide="award" class="w-6 h-6 text-navy-500"></i>
+       </div>
+       <div>
+        <h3 class="font-semibold text-navy-800 dark:text-white text-sm">Virtual Assistant Fundamentals</h3>
+        <p class="text-xs text-navy-400">Online Course · 2023</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Testimonials -->
+   <section class="py-20 px-4 bg-white dark:bg-navy-800/50">
+    <div class="max-w-4xl mx-auto fade-up">
+     <h2 class="font-display text-2xl md:text-3xl font-bold text-navy-900 dark:text-white mb-8 text-center">What Clients Say</h2>
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="p-6 bg-silver-100 dark:bg-navy-700 rounded-xl border border-silver-200 dark:border-navy-600">
+       <div class="flex gap-1 mb-3">
+        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+       </div>
+       <p class="text-navy-600 dark:text-silver-300 text-sm italic mb-3">"Very responsive and helpful. She always makes sure I get what I need quickly and accurately."</p>
+       <p class="text-xs font-medium text-navy-400">— Satisfied Customer</p>
+      </div>
+      <div class="p-6 bg-silver-100 dark:bg-navy-700 rounded-xl border border-silver-200 dark:border-navy-600">
+       <div class="flex gap-1 mb-3">
+        <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i> <i data-lucide="star" class="w-4 h-4 text-yellow-500 fill-yellow-500"></i>
+       </div>
+       <p class="text-navy-600 dark:text-silver-300 text-sm italic mb-3">"Professional and trustworthy. Communication is always clear and timely."</p>
+       <p class="text-xs font-medium text-navy-400">— Repeat Client</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- Contact -->
+   <section id="contact" class="py-20 px-4">
+    <div class="max-w-2xl mx-auto fade-up">
+     <h2 class="font-display text-2xl md:text-3xl font-bold text-navy-900 dark:text-white mb-8 text-center">Get In Touch</h2>
+     <form id="contactForm" class="bg-white dark:bg-navy-800 rounded-2xl p-8 shadow-sm border border-silver-200 dark:border-navy-700 space-y-5">
+      <div>
+       <label for="name" class="block text-sm font-medium text-navy-700 dark:text-silver-200 mb-1">Name</label> <input type="text" id="name" required class="w-full px-4 py-2.5 rounded-lg border border-silver-200 dark:border-navy-600 bg-silver-100 dark:bg-navy-700 text-navy-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-navy-500">
+      </div>
+      <div>
+       <label for="email" class="block text-sm font-medium text-navy-700 dark:text-silver-200 mb-1">Email</label> <input type="email" id="email" required class="w-full px-4 py-2.5 rounded-lg border border-silver-200 dark:border-navy-600 bg-silver-100 dark:bg-navy-700 text-navy-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-navy-500">
+      </div>
+      <div>
+       <label for="message" class="block text-sm font-medium text-navy-700 dark:text-silver-200 mb-1">Message</label> <textarea id="message" rows="4" required class="w-full px-4 py-2.5 rounded-lg border border-silver-200 dark:border-navy-600 bg-silver-100 dark:bg-navy-700 text-navy-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-navy-500 resize-none"></textarea>
+      </div><button type="submit" class="w-full py-3 bg-navy-700 hover:bg-navy-800 text-white rounded-lg font-medium transition-colors glow">Send Message</button>
+      <div id="formSuccess" class="hidden text-center text-green-600 dark:text-green-400 text-sm font-medium py-2">
+       ✓ Message sent successfully! I'll get back to you soon.
+      </div>
+     </form>
+     <div class="flex justify-center gap-4 mt-8">
+      <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white rounded-lg text-sm font-medium transition-colors"> <i data-lucide="message-circle" class="w-4 h-4"></i> WhatsApp </a> <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-5 py-2.5 bg-blue-700 hover:bg-blue-800 text-white rounded-lg text-sm font-medium transition-colors"> <i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn </a>
+     </div>
+    </div>
+   </section>
+  </main><!-- Footer -->
+  <footer class="py-6 px-4 border-t border-silver-200 dark:border-navy-700 text-center">
+   <p class="text-sm text-navy-400">© 2024 Dwi Laily Satiti. All rights reserved.</p>
+  </footer>
+  <script>
+    // Config & SDK
+    const defaultConfig = {
+      hero_headline: 'Remote Customer Support & Admin Professional',
+      hero_tagline: 'Dedicated, detail-oriented, and client-focused. Helping businesses thrive through exceptional support and seamless administration.',
+      about_text: "I'm Dwi Laily Satiti, a customer support and administrative professional based in Indonesia, specializing in remote work. With hands-on experience running my own online business and serving clients directly, I bring a unique combination of entrepreneurial mindset and service excellence to every role.",
+      contact_email: 'dwilailysatiti@email.com',
+      whatsapp_number: '628123456789',
+      linkedin_url: 'https://linkedin.com/in/dwiailysatiti',
+      portfolio_title_1: 'Customer Chat Support',
+      portfolio_desc_1: 'Handling product inquiries and resolving issues via WhatsApp & messaging platforms',
+      portfolio_title_2: 'Order Processing & Tracking',
+      portfolio_desc_2: 'Processing orders, tracking shipments, and confirming deliveries with accuracy',
+      background_color: '#f7f9fc',
+      surface_color: '#ffffff',
+      text_color: '#1a2f44',
+      primary_action_color: '#243b53',
+      secondary_action_color: '#486581',
+      font_family: 'Outfit',
+      font_size: 16
+    };
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    function applyConfig(config) {
+      const c = { ...defaultConfig, ...config };
+      document.getElementById('heroHeadline').textContent = c.hero_headline;
+      document.getElementById('heroTagline').textContent = c.hero_tagline;
+      document.getElementById('aboutText').textContent = c.about_text;
+      document.getElementById('portfolio_title_1_display').textContent = c.portfolio_title_1;
+      document.getElementById('portfolio_desc_1_display').textContent = c.portfolio_desc_1;
+      document.getElementById('portfolio_title_2_display').textContent = c.portfolio_title_2;
+      document.getElementById('portfolio_desc_2_display').textContent = c.portfolio_desc_2;
 
-<style>
-body {
-  margin:0;
-  font-family:'Poppins',sans-serif;
-  background:#0f172a;
-  color:white;
-}
+      // Update WhatsApp & LinkedIn links
+      const waLink = document.querySelector('a[href*="wa.me"]');
+      if (waLink && c.whatsapp_number) {
+        waLink.href = `https://wa.me/${c.whatsapp_number.replace(/\D/g, '')}`;
+      }
+      const liLink = document.querySelector('a[href*="linkedin"]');
+      if (liLink && c.linkedin_url) {
+        liLink.href = c.linkedin_url;
+      }
 
-header {
-  padding:60px 20px;
-  text-align:center;
-  background:linear-gradient(135deg,#064e3b,#0f172a);
-}
+      // Colors
+      document.documentElement.style.setProperty('--bg', c.background_color);
+      document.documentElement.style.setProperty('--surface', c.surface_color);
+      document.documentElement.style.setProperty('--text', c.text_color);
+      document.documentElement.style.setProperty('--primary', c.primary_action_color);
+      document.documentElement.style.setProperty('--secondary', c.secondary_action_color);
 
-h1 {font-size:40px;}
-h2 {color:#34d399;}
+      // Font
+      const font = c.font_family || defaultConfig.font_family;
+      document.body.style.fontFamily = `${font}, Outfit, sans-serif`;
+      const baseSize = c.font_size || defaultConfig.font_size;
+      document.body.style.fontSize = `${baseSize}px`;
+    }
 
-.container {padding:40px 20px; max-width:1000px; margin:auto;}
+    window.elementSdk.init({
+      defaultConfig,
+      onConfigChange: async (config) => applyConfig(config),
+      mapToCapabilities: (config) => ({
+        recolorables: [
+          { get: () => config.background_color || defaultConfig.background_color, set: (v) => { config.background_color = v; window.elementSdk.setConfig({ background_color: v }); } },
+          { get: () => config.surface_color || defaultConfig.surface_color, set: (v) => { config.surface_color = v; window.elementSdk.setConfig({ surface_color: v }); } },
+          { get: () => config.text_color || defaultConfig.text_color, set: (v) => { config.text_color = v; window.elementSdk.setConfig({ text_color: v }); } },
+          { get: () => config.primary_action_color || defaultConfig.primary_action_color, set: (v) => { config.primary_action_color = v; window.elementSdk.setConfig({ primary_action_color: v }); } },
+          { get: () => config.secondary_action_color || defaultConfig.secondary_action_color, set: (v) => { config.secondary_action_color = v; window.elementSdk.setConfig({ secondary_action_color: v }); } }
+        ],
+        borderables: [],
+        fontEditable: { get: () => config.font_family || defaultConfig.font_family, set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); } },
+        fontSizeable: { get: () => config.font_size || defaultConfig.font_size, set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); } }
+      }),
+      mapToEditPanelValues: (config) => new Map([
+        ['hero_headline', config.hero_headline || defaultConfig.hero_headline],
+        ['hero_tagline', config.hero_tagline || defaultConfig.hero_tagline],
+        ['about_text', config.about_text || defaultConfig.about_text],
+        ['portfolio_title_1', config.portfolio_title_1 || defaultConfig.portfolio_title_1],
+        ['portfolio_desc_1', config.portfolio_desc_1 || defaultConfig.portfolio_desc_1],
+        ['portfolio_title_2', config.portfolio_title_2 || defaultConfig.portfolio_title_2],
+        ['portfolio_desc_2', config.portfolio_desc_2 || defaultConfig.portfolio_desc_2],
+        ['contact_email', config.contact_email || defaultConfig.contact_email],
+        ['whatsapp_number', config.whatsapp_number || defaultConfig.whatsapp_number],
+        ['linkedin_url', config.linkedin_url || defaultConfig.linkedin_url]
+      ])
+    });
 
-.card {
-  background:#111827;
-  padding:20px;
-  margin:15px 0;
-  border-radius:12px;
-  transition:0.3s;
-}
+    // Loader
+    window.addEventListener('load', () => {
+      setTimeout(() => document.getElementById('loader').classList.add('hidden'), 600);
+    });
 
-.card:hover {
-  transform:translateY(-5px);
-  box-shadow:0 0 20px #34d39955;
-}
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
 
-.btn {
-  display:inline-block;
-  padding:10px 20px;
-  margin-top:15px;
-  background:#34d399;
-  color:black;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:bold;
-}
+    // Mobile menu
+    document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+    document.querySelectorAll('#mobileMenu a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('mobileMenu').classList.add('hidden'));
+    });
 
-.grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
-}
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-footer {
-  text-align:center;
-  padding:20px;
-  background:#020617;
-}
-</style>
-</head>
+    // Skill bars
+    const skillObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.querySelectorAll('.skill-bar').forEach(bar => {
+            bar.style.width = bar.dataset.width + '%';
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+    document.getElementById('skills') && skillObserver.observe(document.getElementById('skills'));
 
-<body>
+    // Contact form
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('formSuccess').classList.remove('hidden');
+      e.target.reset();
+      setTimeout(() => document.getElementById('formSuccess').classList.add('hidden'), 4000);
+    });
 
-<header>
-  <h1>Your Name</h1>
-  <p>Advocate | Legal Consultant | Remote Enthusiast</p>
-  <a href="#contact" class="btn">Hire Me</a>
-</header>
-
-<div class="container">
-
-<h2>About Me</h2>
-<div class="card">
-  <p>
-  Saya adalah advokat profesional dengan komitmen tinggi terhadap keadilan, 
-  integritas, dan pelayanan klien. Berfokus pada pekerjaan remote dengan 
-  pendekatan efisien dan transparan.
-  </p>
-</div>
-
-<h2>CV / Resume</h2>
-<div class="card">
-  <p><b>Education:</b> S.H. (Hukum)</p>
-  <p><b>Experience:</b> Legal Consultant, Advocate</p>
-  <p><b>Skills:</b> Legal Drafting, Litigation, Negotiation</p>
-  <a href="#" class="btn">Download CV</a>
-</div>
-
-<h2>Portfolio</h2>
-<div class="grid">
-  <div class="card">Kasus Perdata</div>
-  <div class="card">Legal Opinion</div>
-  <div class="card">Kontrak Bisnis</div>
-</div>
-
-<h2>Certifications</h2>
-<div class="grid">
-  <div class="card">PKPA Certificate</div>
-  <div class="card">Advocate License</div>
-</div>
-
-<h2>Gallery</h2>
-<div class="grid">
-  <div class="card">Foto Profesional</div>
-  <div class="card">Kegiatan Seminar</div>
-</div>
-
-<h2 id="contact">Contact</h2>
-<div class="card">
-  <p>Email: your@email.com</p>
-  <p>WhatsApp: 08xxxxxxxxxx</p>
-  <a href="#" class="btn">LinkedIn</a>
-</div>
-
-</div>
-
-<footer>
-  <p>© 2026 Your Name | Professional Portfolio</p>
-</footer>
-
-</body>
+    lucide.createIcons();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a09919fce9cd5e5e',t:'MTc4MTEwMjExNQ=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
